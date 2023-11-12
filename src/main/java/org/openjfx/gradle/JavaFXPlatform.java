@@ -43,7 +43,9 @@ public enum JavaFXPlatform {
     LINUX_AARCH64("linux-aarch64", "linux-aarch_64", OperatingSystemFamily.LINUX, MachineArchitecture.ARM64),
     WINDOWS("win", "windows-x86_64", OperatingSystemFamily.WINDOWS, MachineArchitecture.X86_64),
     OSX("mac", "osx-x86_64", OperatingSystemFamily.MACOS, MachineArchitecture.X86_64),
-    OSX_AARCH64("mac-aarch64", "osx-aarch_64", OperatingSystemFamily.MACOS, MachineArchitecture.ARM64);
+    OSX_AARCH64("mac-aarch64", "osx-aarch_64", OperatingSystemFamily.MACOS, MachineArchitecture.ARM64) ,
+
+    WINDOWS_32("win-x86", "windows-x86_32", OperatingSystemFamily.WINDOWS, MachineArchitecture.X86);
 
     private final String classifier;
     private final String osDetectorClassifier;
@@ -108,6 +110,8 @@ public enum JavaFXPlatform {
             case "mac-aarch64":
             case "macos-aarch64":
                 return JavaFXPlatform.OSX_AARCH64;
+            case "win-x86":
+                return JavaFXPlatform.WINDOWS_32;
         }
         return valueOf(platform);
     }
